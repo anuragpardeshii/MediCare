@@ -32,7 +32,7 @@ app.use(cookieParser()); // Parse cookies
 //  CORS Configuration (Fixes cookie issues)
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow frontend origin
+    origin: process.env.FRONTEND_URI, // Allow frontend origin
     credentials: true, // Allow cookies
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
