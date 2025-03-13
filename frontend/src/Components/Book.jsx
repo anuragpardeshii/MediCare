@@ -24,7 +24,7 @@ export default function Book() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/auth/checkauth", {
+        const response = await axios.get("https://medi-care-dds6.vercel.app/api/auth/checkauth", {
           withCredentials: true, // Ensures cookies are sent
         });
   
@@ -51,7 +51,7 @@ export default function Book() {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/users?role=doctor");
+        const { data } = await axios.get("https://medi-care-dds6.vercel.app/api/users?role=doctor");
         setDoctors(data.data || []);
       } catch (error) {
         console.error("Error fetching doctors:", error);
@@ -89,7 +89,7 @@ export default function Book() {
   
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/appointments",
+        "https://medi-care-dds6.vercel.app/api/appointments",
         updatedFormData
       );
       console.log("Appointment booked:", response.data);

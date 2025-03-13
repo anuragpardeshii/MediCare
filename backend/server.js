@@ -38,6 +38,10 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  res.send("Hello from Vercel Node.js Backend!");
+});
+
 //  Express-Session (No MongoStore)
 app.use(
   session({

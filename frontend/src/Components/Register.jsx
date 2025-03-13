@@ -36,7 +36,7 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", formData);
+      const res = await axios.post("https://medi-care-dds6.vercel.app/api/auth/register", formData);
       console.log("Registration Successful", res.data);
       alert("Registration successful!");
       

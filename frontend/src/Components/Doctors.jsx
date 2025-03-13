@@ -18,7 +18,7 @@ export default function Doctors() {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/auth/checkauth",
+          "https://medi-care-dds6.vercel.app/api/auth/checkauth",
           { withCredentials: true }
         );
         if (response.data.user) {
@@ -42,7 +42,7 @@ export default function Doctors() {
     const fetchAppointments = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/appointments"
+          "https://medi-care-dds6.vercel.app/api/appointments"
         );
         setAppointments(response.data);
         console.log("Appointments fetched:", response.data); // Debugging
@@ -54,7 +54,7 @@ export default function Doctors() {
     const fetchPatients = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:5000/api/users?role=patient"
+          "https://medi-care-dds6.vercel.app/api/users?role=patient"
         );
         setPatients(data.data || []);
         console.log("Patients fetched:", data.data); // Debugging
@@ -66,7 +66,7 @@ export default function Doctors() {
     const fetchDoctors = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:5000/api/users?role=doctor"
+          "https://medi-care-dds6.vercel.app/api/users?role=doctor"
         );
         setDoctors(data.data || []);
         console.log("Doctors fetched:", data.data); // Debugging
@@ -84,7 +84,7 @@ export default function Doctors() {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/users/${id}`);
+      await axios.delete(`https://medi-care-dds6.vercel.app/api/users/${id}`);
       setPatients(patients.filter((user) => user._id !== id));
       setDoctors(doctors.filter((user) => user._id !== id));
     } catch (error) {
@@ -95,7 +95,7 @@ export default function Doctors() {
   const cancelAppointment = async (appointmentId) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/appointments/${appointmentId}`
+        `https://medi-care-dds6.vercel.app/api/appointments/${appointmentId}`
       );
 
       setAppointments(
