@@ -13,7 +13,11 @@ export default function Doctors() {
 
   const navigate = useNavigate();
 
+<<<<<<< HEAD
   // Fetch user info and set it properly
+=======
+  // Fetch user info
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -21,6 +25,7 @@ export default function Doctors() {
           "https://medi-care-dds6.vercel.app/api/auth/checkauth",
           { withCredentials: true }
         );
+<<<<<<< HEAD
 
         if (response.data?.user) {
           const { role } = response.data.user;
@@ -36,6 +41,11 @@ export default function Doctors() {
         } else {
           setError("User data not found.");
           navigate("/login");
+=======
+        if (response.data.user) {
+          setUser(response.data.user);
+          console.log("User fetched:", response.data.user); // Debugging
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
         }
       } catch (err) {
         setError("You need to be logged in to view this page.");
@@ -46,6 +56,7 @@ export default function Doctors() {
     };
 
     fetchUser();
+<<<<<<< HEAD
   }, [navigate]); // Include `navigate` to avoid stale closure issues
 
   // Fetch all data only after `user` is set
@@ -74,27 +85,88 @@ export default function Doctors() {
   }, [user]); // Trigger fetching only when `user` changes
 
   // Delete user function
+=======
+  }, [navigate]);
+
+  useEffect(() => {
+    if (!user) return; // Don't fetch if user is not set
+
+    const fetchAppointments = async () => {
+      try {
+        const response = await axios.get(
+          "https://medi-care-dds6.vercel.app/api/appointments"
+        );
+        setAppointments(response.data);
+        console.log("Appointments fetched:", response.data); // Debugging
+      } catch (error) {
+        console.error("Error fetching appointments:", error);
+      }
+    };
+
+    const fetchPatients = async () => {
+      try {
+        const { data } = await axios.get(
+          "https://medi-care-dds6.vercel.app/api/users?role=patient"
+        );
+        setPatients(data.data || []);
+        console.log("Patients fetched:", data.data); // Debugging
+      } catch (error) {
+        console.error("Error fetching patients:", error);
+      }
+    };
+
+    const fetchDoctors = async () => {
+      try {
+        const { data } = await axios.get(
+          "https://medi-care-dds6.vercel.app/api/users?role=doctor"
+        );
+        setDoctors(data.data || []);
+        console.log("Doctors fetched:", data.data); // Debugging
+      } catch (error) {
+        console.error("Error fetching doctors:", error);
+      }
+    };
+
+    fetchPatients();
+    fetchDoctors();
+    fetchAppointments();
+  }, [user]); // Run this only when `user` is set
+
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
   const deleteUser = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
 
     try {
       await axios.delete(`https://medi-care-dds6.vercel.app/api/users/${id}`);
+<<<<<<< HEAD
       setPatients((prev) => prev.filter((user) => user._id !== id));
       setDoctors((prev) => prev.filter((user) => user._id !== id));
+=======
+      setPatients(patients.filter((user) => user._id !== id));
+      setDoctors(doctors.filter((user) => user._id !== id));
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
     } catch (error) {
       console.error("Error deleting user:", error);
     }
   };
 
+<<<<<<< HEAD
   // Cancel appointment function
+=======
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
   const cancelAppointment = async (appointmentId) => {
     try {
       await axios.delete(
         `https://medi-care-dds6.vercel.app/api/appointments/${appointmentId}`
       );
 
+<<<<<<< HEAD
       setAppointments((prev) =>
         prev.filter((appt) => appt._id !== appointmentId)
+=======
+      setAppointments(
+        appointments.filter((appt) => appt._id !== appointmentId)
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
       );
 
       alert("Appointment canceled successfully.");
@@ -109,7 +181,11 @@ export default function Doctors() {
       <h3 className="text-4xl font-bold m-4 my-8 text-center">
         Welcome{" "}
         <span className="text-emerald-500">
+<<<<<<< HEAD
           Dr. {user ? user.name : "Guest (demo)"}
+=======
+          Dr. {user ? user.name : "Guest"}
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
         </span>
       </h3>
       <div className="border-b-1 border-gray-200 mb-8"></div>
@@ -345,6 +421,7 @@ export default function Doctors() {
             {/* All users  */}
             <div className="space-y-8">
               {/* Patients Table */}
+<<<<<<< HEAD
               <div className="rounded-lg border border-gray-200 overflow-x-auto">
                 <h2 className="text-lg font-semibold p-4">Patients</h2>
                 <div className="min-w-[300px]">
@@ -434,6 +511,93 @@ export default function Doctors() {
                     </tbody>
                   </table>
                 </div>
+=======
+              <div className="rounded-lg border border-gray-200">
+                <h2 className="text-lg font-semibold p-4">Patients</h2>
+                <table className="w-full text-sm text-left text-gray-500">
+                  <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                      <th className="px-6 py-3">Patient Name</th>
+                      <th className="px-6 py-3">Email</th>
+                      <th className="px-6 py-3">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {patients.length > 0 ? (
+                      patients.map((user) => (
+                        <tr
+                          key={user._id}
+                          className="bg-white border-b border-gray-200"
+                        >
+                          <td className="px-6 py-4 font-medium text-gray-900">
+                            {user.name}
+                          </td>
+                          <td className="px-6 py-4">{user.email}</td>
+                          <td className="px-6 py-4">
+                            <button
+                              onClick={() => deleteUser(user._id)}
+                              className="text-red-500 font-medium"
+                            >
+                              Delete User
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="3" className="px-6 py-4 text-center">
+                          No patients found
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Doctors Table */}
+              <div className="rounded-lg mb-8 border border-gray-200">
+                <h2 className="text-lg font-semibold p-4">Doctors</h2>
+                <table className="w-full text-sm text-left text-gray-500">
+                  <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                      <th className="px-6 py-3">Doctor Name</th>
+                      <th className="px-6 py-3">Email</th>
+                      <th className="px-6 py-3">Specialisation</th>
+                      <th className="px-6 py-3">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {doctors.length > 0 ? (
+                      doctors.map((user) => (
+                        <tr
+                          key={user._id}
+                          className="bg-white border-b border-gray-200"
+                        >
+                          <td className="px-6 py-4 font-medium text-gray-900">
+                            {user.name}
+                          </td>
+                          <td className="px-6 py-4">{user.email}</td>
+                          <td className="px-6 py-4">{user.specialization}</td>
+                          <td className="px-6 py-4">
+                            <button
+                              onClick={() => deleteUser(user._id)}
+                              className="text-red-500 font-medium"
+                            >
+                              Delete User
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="3" className="px-6 py-4 text-center">
+                          No doctors found
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
               </div>
             </div>
           </div>

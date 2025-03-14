@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
+=======
+import { useState } from "react";
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -12,6 +16,7 @@ const Register = () => {
     specialization: "",
   });
 
+<<<<<<< HEAD
   useEffect(() => {
       const checkAuth = async () => {
         try {
@@ -35,6 +40,8 @@ const Register = () => {
       checkAuth();
     }, [navigate]);
 
+=======
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
   const handleChange = (e) => {
     const { name, value } = e.target;
 

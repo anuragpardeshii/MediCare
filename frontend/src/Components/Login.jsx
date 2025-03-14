@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+=======
+import { useState } from "react";
+import axios from "axios";
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
+<<<<<<< HEAD
   const navigate = useNavigate();
 
   // Redirect if user is already logged in
@@ -30,6 +36,8 @@ const Login = () => {
 
     checkAuth();
   }, [navigate]);
+=======
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -38,12 +46,17 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null); // Clear previous errors
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
     try {
       const res = await axios.post("https://medi-care-dds6.vercel.app/api/auth/login", formData, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true, // ✅ Ensures cookies are included
       });
+<<<<<<< HEAD
 
       console.log("Login Successful:", res.data);
       alert("Login Successful");
@@ -53,6 +66,17 @@ const Login = () => {
         navigate("/dashboard"); // Patient dashboard
       } else if (res.data?.user?.role === "doctor") {
         navigate("/doctor"); // Doctor dashboard
+=======
+  
+      console.log("Login Successful:", res.data);
+      alert("Login Successful");
+  
+      // Check user role and redirect accordingly
+      if (res.data?.user?.role === "patient") {
+        window.location.href = "/dashboard"; // Redirect to patient dashboard
+      } else if (res.data?.user?.role === "doctor") {
+        window.location.href = "/doctor"; // Redirect to doctor dashboard
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
       } else {
         alert("Invalid user role");
       }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Node.js dependencies
 node_modules/
 npm-debug.log
@@ -6,10 +7,14 @@ package-lock.json
 yarn.lock
 
 # Environment Variables
+=======
+# Ignore environment files
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
 .env
 .env.local
 .env.development
 .env.production
+<<<<<<< HEAD
 .env.test
 
 # Logs
@@ -45,3 +50,6 @@ pids/
 *.pid
 *.seed
 *.pid.lock
+=======
+.env.*   # Ignore any other env variants
+>>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
