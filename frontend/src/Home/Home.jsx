@@ -19,21 +19,13 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-<<<<<<< HEAD
                   href="/dashboard"
-=======
-                  href="/login"
->>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
                   className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 text-center"
                 >
                   Book Appointment
                 </a>
                 <a
-<<<<<<< HEAD
                   href="/doctor"
-=======
-                  href="/login"
->>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
                   className="bg-transparent hover:bg-gray-100 border border-emerald-500 text-emerald-400 font-medium py-3 px-6 rounded-lg transition duration-300 text-center"
                 >
                   Doctor's Dashboard

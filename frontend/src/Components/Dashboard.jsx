@@ -18,7 +18,6 @@ export default function Dashboard() {
           "https://medi-care-dds6.vercel.app/api/auth/checkauth",
           { withCredentials: true }
         );
-<<<<<<< HEAD
 
         if (response.data.user) {
           const { role } = response.data.user;
@@ -30,19 +29,12 @@ export default function Dashboard() {
 
           setUser(response.data.user);
           console.log("User fetched:", response.data.user); // Debugging
-=======
-        if (response.data.user) {
-          setUser(response.data.user);
->>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
         }
       } catch (err) {
         setError("You need to be logged in to view this page.");
         navigate("/login");
-<<<<<<< HEAD
       } finally {
         setLoading(false);
-=======
->>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
       }
     };
 
@@ -86,7 +78,6 @@ export default function Dashboard() {
     <div className="max-w-7xl mx-auto m-4">
       <h3 className="text-4xl font-bold m-4 my-8 text-center">
         Welcome{" "}
-<<<<<<< HEAD
         <span className="text-emerald-500">
           {user ? user.name : "Guest (demo)"}
         </span>
@@ -100,18 +91,6 @@ export default function Dashboard() {
             Book Appointments
           </h3>
           <div className="bg-white border border-gray-200 rounded-lg shadow-sm">
-=======
-        <span className="text-emerald-500">{user ? user.name : "Guest"}</span>
-      </h3>
-      <div className="border-b-1 border-gray-200 mb-8"></div>
-
-      <div className="my-4 flex flex-row gap-4 items-start mx-4">
-        <div className="min-w-xs">
-          <h3 className="mb-4 pb-2 text-2xl font-bold tracking-tight text-gray-900 border-b-1 border-gray-200">
-            Book Appointments
-          </h3>
-          <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
->>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
             <div className="p-5">
               <p className="mb-4 font-semibold text-gray-500">
                 Skip the wait! Book your doctor’s appointment online in seconds.
@@ -141,14 +120,9 @@ export default function Dashboard() {
           </div>
         </div>
 
-<<<<<<< HEAD
         {/* Your Appointments Section - Full width on mobile, spans 3 columns on larger screens */}
         <div className="md:col-span-4 overflow-x-auto">
           <h3 className="mb-4 pb-2 text-2xl font-bold tracking-tight text-gray-900 border-b border-gray-200">
-=======
-        <div className="w-full overflow-x-auto">
-          <h3 className="mb-4 pb-2 text-2xl font-bold tracking-tight text-gray-900 border-b-1 border-gray-200">
->>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
             Your Appointments
           </h3>
 
@@ -156,15 +130,9 @@ export default function Dashboard() {
             <table className="w-full text-sm text-left text-gray-500">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
-<<<<<<< HEAD
                   <th className="px-4 py-3">Doctor</th>
                   <th className="px-4 py-3">Date</th>
                   <th className="px-4 py-3">Time</th>
-=======
-                  <th className="px-6 py-3">Doctor</th>
-                  <th className="px-6 py-3">Date</th>
-                  <th className="px-6 py-3">Time</th>
->>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
                 </tr>
               </thead>
               <tbody>
@@ -174,37 +142,22 @@ export default function Dashboard() {
                       key={appointment._id}
                       className="bg-white border-b border-gray-200"
                     >
-<<<<<<< HEAD
                       <td className="px-4 py-4 font-medium text-gray-900">
                         Dr. {appointment.doctor}
                       </td>
                       <td className="px-4 py-4">
-=======
-                      <td className="px-6 py-4 font-medium text-gray-900">
-                  Dr. {appointment.doctor}
-                      </td>
-                      <td className="px-6 py-4">
->>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
                         {appointment.date
                           ? new Date(appointment.date).toLocaleDateString()
                           : "N/A"}
                       </td>
-<<<<<<< HEAD
                       <td className="px-4 py-4">{appointment.time || "N/A"}</td>
-=======
-                      <td className="px-6 py-4">{appointment.time || "N/A"}</td>
->>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
                     </tr>
                   ))
                 ) : (
                   <tr>
                     <td
                       colSpan="3"
-<<<<<<< HEAD
                       className="px-4 py-4 text-center text-gray-500"
-=======
-                      className="px-6 py-4 text-center text-gray-500"
->>>>>>> 9e1fffad1457eedf5f0f4d7ad67e6ac99cf705eb
                     >
                       No appointments found.
                     </td>
