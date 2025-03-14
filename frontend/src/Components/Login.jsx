@@ -11,7 +11,7 @@ const Login = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get("https://medi-care-dds6.vercel.app/api/auth/checkauth", {
+        const res = await axios.get("https://medi-care-tr9j.vercel.app/api/auth/checkauth", {
           withCredentials: true,
         });
 
@@ -39,7 +39,7 @@ const Login = () => {
     e.preventDefault();
     setError(null); // Clear previous errors
     try {
-      const res = await axios.post("https://medi-care-dds6.vercel.app/api/auth/login", formData, {
+      const res = await axios.post("https://medi-care-tr9j.vercel.app/api/auth/login", formData, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true, // ✅ Ensures cookies are included
       });

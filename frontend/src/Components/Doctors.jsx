@@ -18,7 +18,7 @@ export default function Doctors() {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://medi-care-dds6.vercel.app/api/auth/checkauth",
+          "https://medi-care-tr9j.vercel.app/api/auth/checkauth",
           { withCredentials: true }
         );
 
@@ -55,9 +55,9 @@ export default function Doctors() {
     const fetchData = async () => {
       try {
         const [appointmentsRes, patientsRes, doctorsRes] = await Promise.all([
-          axios.get("https://medi-care-dds6.vercel.app/api/appointments"),
-          axios.get("https://medi-care-dds6.vercel.app/api/users?role=patient"),
-          axios.get("https://medi-care-dds6.vercel.app/api/users?role=doctor"),
+          axios.get("https://medi-care-tr9j.vercel.app/api/appointments"),
+          axios.get("https://medi-care-tr9j.vercel.app/api/users?role=patient"),
+          axios.get("https://medi-care-tr9j.vercel.app/api/users?role=doctor"),
         ]);
 
         setAppointments(appointmentsRes.data);
@@ -78,7 +78,7 @@ export default function Doctors() {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
 
     try {
-      await axios.delete(`https://medi-care-dds6.vercel.app/api/users/${id}`);
+      await axios.delete(`https://medi-care-tr9j.vercel.app/api/users/${id}`);
       setPatients((prev) => prev.filter((user) => user._id !== id));
       setDoctors((prev) => prev.filter((user) => user._id !== id));
     } catch (error) {
@@ -90,7 +90,7 @@ export default function Doctors() {
   const cancelAppointment = async (appointmentId) => {
     try {
       await axios.delete(
-        `https://medi-care-dds6.vercel.app/api/appointments/${appointmentId}`
+        `https://medi-care-tr9j.vercel.app/api/appointments/${appointmentId}`
       );
 
       setAppointments((prev) =>

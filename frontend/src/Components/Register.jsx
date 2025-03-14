@@ -15,7 +15,7 @@ const Register = () => {
   useEffect(() => {
       const checkAuth = async () => {
         try {
-          const res = await axios.get("https://medi-care-dds6.vercel.app/api/auth/checkauth", {
+          const res = await axios.get("https://medi-care-tr9j.vercel.app/api/auth/checkauth", {
             withCredentials: true,
           });
   
@@ -59,7 +59,7 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.post("https://medi-care-dds6.vercel.app/api/auth/register", formData);
+      const res = await axios.post("https://medi-care-tr9j.vercel.app/api/auth/register", formData);
       console.log("Registration Successful", res.data);
       alert("Registration successful!");
       

@@ -15,7 +15,7 @@ export default function Dashboard() {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://medi-care-dds6.vercel.app/api/auth/checkauth",
+          "https://medi-care-tr9j.vercel.app/api/auth/checkauth",
           { withCredentials: true }
         );
 
@@ -48,7 +48,7 @@ export default function Dashboard() {
     const fetchAppointments = async () => {
       try {
         const response = await axios.get(
-          "https://medi-care-dds6.vercel.app/api/appointments"
+          "https://medi-care-tr9j.vercel.app/api/appointments"
         );
         const allAppointments = response.data;
 

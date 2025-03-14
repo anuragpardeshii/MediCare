@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await axios.get("https://medi-care-dds6.vercel.app/api/auth/checkauth", {
+        const response = await axios.get("https://medi-care-tr9j.vercel.app/api/auth/checkauth", {
           withCredentials: true,
         });
         if (response.data.user) {
@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
   // Logout function
   const logout = async () => {
     try {
-      await axios.post("https://medi-care-dds6.vercel.app/api/auth/logout", {}, { withCredentials: true });
+      await axios.post("https://medi-care-tr9j.vercel.app/api/auth/logout", {}, { withCredentials: true });
       setUser(null);
       navigate("/login");
     } catch (err) {
